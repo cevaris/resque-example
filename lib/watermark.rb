@@ -11,6 +11,9 @@ end
 
 class Watermark
   extend RetriedJob
+  extend Resque::Plugins::Director
+  direct :min_workers => 3, :max_workers => 5, :max_time => 60, :max_queue => 5, :wait_time => 10
+  @queue = :test
 
   attr_reader :originals_directory, :watermarked_directory, :connection, :original_file
   @queue = :watermark
