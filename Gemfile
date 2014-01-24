@@ -7,6 +7,7 @@ gem 'fog'
 gem 'mini_magick'
 gem 'thin'
 gem 'sinatra-redis'
+gem 'resque-director'
 
 
 group :development, :test do

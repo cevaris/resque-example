@@ -45,6 +45,11 @@ GEM
       redis-namespace (~> 1.0)
       sinatra (>= 0.9.2)
       vegas (~> 0.1.2)
+    resque-director (2.2.4)
+      resque (~> 1.10)
+      resque-remora (~> 0.1.0)
+    resque-remora (0.1.0)
+      resque (~> 1.10)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -81,6 +86,7 @@ DEPENDENCIES
   rack-test
   rake
   resque (~> 1.22.0)
+  resque-director
   rspec
   sinatra
   sinatra-redis
