@@ -1,4 +1,6 @@
 require 'bundler/setup'
+require 'json'
+
 Bundler.require(:default)
 require File.expand_path('../lib/watermark', __FILE__)
 require File.expand_path('../lib/redis_keys', __FILE__)
@@ -10,6 +12,9 @@ configure do
   Resque.redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
   Resque.redis.namespace = "resque:example"
   set :redis, redis_url
+end
+before do
+  p params
 end
 
 get "/" do
@@ -45,5 +50,6 @@ def send_to_s3(tmpfile, name)
     :public => true
   )
   redis.incr s3_originals_key
+  puts file_token.inspect
   file_token
 end

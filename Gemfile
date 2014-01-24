@@ -8,6 +8,7 @@ gem 'mini_magick'
 gem 'thin'
 gem 'sinatra-redis'
 
+
 group :development, :test do
   gem 'pry'
 end
